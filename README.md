@@ -1,2 +1,2 @@
 # ShowNexus-Scalable-Event-Movie-Ticket-Booking-System-PostgreSQL-
-A fully normalized database project inspired by BookMyShow, built using PostgreSQL and pgAdmin. Supports ticket booking for events (by category) and movies (by seat), with BCNF-compliant schemas, multi-location support, fixed venue arrangements, and flexible pricing. Ideal for academic DBMS projects or learning relational schema design.
+A fully normalized database project inspired by BookMyShow, built using PostgreSQL and pgAdmin. Supports ticket booking for events (by category) and movies (by seat), with BCNF-compliant schemas, multi-location support, fixed venue arrangements, and flexible pricing.
