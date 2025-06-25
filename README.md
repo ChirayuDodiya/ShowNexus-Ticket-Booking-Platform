@@ -35,8 +35,6 @@ ShowNexus/
 ├── sample_queries.sql       # Sample queries (joins, aggregations, etc.)
 ├── README.md               # Project overview and documentation
 ├── ER_diagram.pdf          # Entity-Relationship Diagrams
-├── BCNF_PROOF.txt          # BCNF normalization proof
-├── MINIMAL_FDS.txt         # Minimal functional dependencies
 ├── query_output_1.jpg      # Query execution screenshots
 ├── query_output_2.jpg      # Query execution screenshots
 ├── query_output_3.jpg      # Query execution screenshots
