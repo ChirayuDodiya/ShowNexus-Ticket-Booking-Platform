@@ -1,0 +1,153 @@
+1. Table: Account
+Primary Key: account_id
+FDs:
+account_id → username, password, email, mobile_number, dateofbirth, gender, role, created_at, state, city, area, firstname, middlename, surname, referral_code, referred_by
+Proof:
+Left-hand side account_id is the primary key (and hence a superkey). All attributes are functionally dependent on it. Hence, the table is in BCNF.
+
+2. Table: Coupon_Category
+Primary Key: coupon_category_id
+FDs:
+coupon_category_id → category_name, description
+Proof:
+coupon_category_id is the primary key and the only determinant. Hence, the table is in BCNF.
+
+3. Table: Coupon
+Primary Key: coupon_id
+FDs:
+coupon_id → account_id, coupon_category_id, amount, validity, issued_at, redeemed_at
+Proof:
+The determinant is a primary key. Thus, the table is in BCNF.
+
+4. Table: Event
+Primary Key: event_id
+FDs:
+event_id → event_name, event_description, poster_link, trailer_link, duration, age_restriction, language, event_genre
+Proof:
+event_id is the primary key. All dependencies use it as LHS. So, the table is in BCNF.
+
+5. Table: Movie_Event
+Primary Key: event_id
+FDs:
+event_id → imdb_rating, release_date
+Proof:
+event_id is both the primary key and foreign key, and is a superkey. So, the table is in BCNF.
+
+6. Table: Show_Event
+Primary Key: event_id
+FDs:
+event_id → audience_interaction
+Proof:
+event_id is the key and only determinant. Hence, BCNF is satisfied.
+
+7. Table: Artist
+Primary Key: artist_id
+FDs:
+artist_id → artist_name
+Proof:
+Determinant is the primary key. Table is in BCNF.
+
+8. Table: Show_Performers
+Primary Key: (artist_id, event_id)
+FDs:
+No non-trivial FDs other than the composite key
+Proof:
+All FDs have full primary key as determinant. Hence, the table is in BCNF.
+
+9. Table: Region
+Primary Key: pincode
+FDs:
+pincode → city, state, area
+Proof:
+Primary key determines all attributes. Table is in BCNF.
+
+10. Table: Venue
+Primary Key: venue_id
+FDs:
+venue_id → venue_name, pincode
+Proof:
+venue_id is the primary key and determinant. So, BCNF is satisfied.
+
+11. Table: Room
+Primary Key: room_id
+FDs:
+room_id → venue_id, room_no, screen_type, capacity
+Proof:
+All attributes depend on primary key. Hence, BCNF holds.
+
+12. Table: Category
+Primary Key: catagory
+FDs:
+No non-trivial FDs
+Proof:
+Only one attribute (primary key). Trivially in BCNF.
+
+13. Table: Seat
+Primary Key: (room_id, seat_number)
+FDs:
+(room_id, seat_number) → seat_row, catagory
+Proof:
+Composite key is a superkey. Hence, BCNF is satisfied.
+
+14. Table: Event_Schedule
+Primary Key: schedule_id
+FDs:
+schedule_id → event_id, manager_id, room_id, event_datetime, sponsored_money
+Proof:
+schedule_id is the primary key. Table is in BCNF.
+
+15. Table: Notification
+Primary Key: notification_id
+FDs:
+notification_id → schedule_id, message, sent_at
+Proof:
+Primary key is the determinant. Table is in BCNF.
+
+16. Table: User_Notifications
+Primary Key: (account_id, notification_id)
+FDs:
+No non-trivial FDs
+Proof:
+Only the key exists; no partial or transitive dependencies. Hence, BCNF.
+
+17. Table: Show_Pricing
+Primary Key: (schedule_id, category)
+FDs:
+(schedule_id, category) → category_capacity, price
+Proof:
+Composite key is the only determinant. Table is in BCNF.
+
+18. Table: Movie_Pricing
+Primary Key: (schedule_id, catagory)
+FDs:
+(schedule_id, catagory) → price
+Proof:
+Composite key is the only determinant. Table is in BCNF.
+
+19. Table: Payment_Details
+Primary Key: payment_id
+FDs:
+payment_id → transaction_id, payment_method, payment_status, payment_amount, payment_date
+Proof:
+All attributes determined by the primary key. Hence, BCNF.
+
+20. Table: Booking
+Primary Key: booking_id
+FDs:
+booking_id → schedule_id, account_id, payment_id, review, booking_time
+Proof:
+booking_id is the primary key. All attributes are dependent on it. BCNF holds.
+
+21. Table: Booking_Show
+Primary Key: booking_id
+FDs:
+booking_id → catagory, seat_count
+Proof:
+Primary key is the determinant. Table is in BCNF.
+
+22. Table: Booking_Movie
+Primary Key: (booking_id, seat_number)
+FDs:
+(booking_id, seat_number) → catagory
+Proof:
+Composite key is the only determinant. Hence, table is in BCNF.

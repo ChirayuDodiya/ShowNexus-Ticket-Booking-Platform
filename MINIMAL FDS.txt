@@ -1,0 +1,109 @@
+1. Table: Account
+Primary Key: account_id
+Minimal FDs:
+account_id → username, password, email, mobile_number, dateofbirth, gender, role, created_at, state, city, area, firstname, middlename, surname, referral_code, referred_by
+
+2. Table: Coupon_Category
+Primary Key: coupon_category_id
+Minimal FDs:
+coupon_category_id → category_name, description
+
+3. Table: Coupon
+Primary Key: coupon_id
+Minimal FDs:
+coupon_id → account_id, coupon_category_id, amount, validity, issued_at, redeemed_at
+
+4. Table: Event
+Primary Key: event_id
+Minimal FDs:
+event_id → event_name, event_description, poster_link, trailer_link, duration, age_restriction, language, event_genre
+
+5. Table: Movie_Event
+Primary Key: event_id
+Minimal FDs:
+event_id → imdb_rating, release_date
+
+6. Table: Show_Event
+Primary Key: event_id
+Minimal FDs:
+event_id → audience_interaction
+
+7. Table: Artist
+Primary Key: artist_id
+Minimal FDs:
+artist_id → artist_name
+
+8. Table: Show_Performers
+Primary Key: (artist_id, event_id)
+Minimal FDs:
+(artist_id, event_id) → ∅
+
+9. Table: Region
+Primary Key: pincode
+Minimal FDs:
+pincode → city, state, area
+
+10. Table: Venue
+Primary Key: venue_id
+Minimal FDs:
+venue_id → venue_name, pincode
+
+11. Table: Room
+Primary Key: room_id
+Minimal FDs:
+room_id → venue_id, room_no, screen_type, capacity
+
+12. Table: Category
+Primary Key: catagory
+Minimal FDs:
+catagory → ∅
+
+13. Table: Seat
+Primary Key: (room_id, seat_number)
+Minimal FDs:
+(room_id, seat_number) → seat_row, catagory
+
+14. Table: Event_Schedule
+Primary Key: schedule_id
+Minimal FDs:
+schedule_id → event_id, manager_id, room_id, event_datetime, sponsored_money
+
+15. Table: Notification
+Primary Key: notification_id
+Minimal FDs:
+notification_id → schedule_id, message, sent_at
+
+16. Table: User_Notifications
+Primary Key: (account_id, notification_id)
+Minimal FDs:
+(account_id, notification_id) → ∅
+
+17. Table: Show_Pricing
+Primary Key: (schedule_id, category)
+Minimal FDs:
+(schedule_id, category) → category_capacity, price
+
+18. Table: Movie_Pricing
+Primary Key: (schedule_id, catagory)
+Minimal FDs:
+(schedule_id, catagory) → price
+
+19. Table: Payment_Details
+Primary Key: payment_id
+Minimal FDs:
+payment_id → transaction_id, payment_method, payment_status, payment_amount, payment_date
+
+20. Table: Booking
+Primary Key: booking_id
+Minimal FDs:
+booking_id → schedule_id, account_id, payment_id, review, booking_time
+
+21. Table: Booking_Show
+Primary Key: booking_id
+Minimal FDs:
+booking_id → catagory, seat_count
+
+22. Table: Booking_Movie
+Primary Key: (booking_id, seat_number)
+Minimal FDs:
+(booking_id, seat_number) → catagory
