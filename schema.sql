@@ -1,3 +1,7 @@
+-- Create schema
+CREATE SCHEMA IF NOT EXISTS ShowNexus;
+SET search_path TO ShowNexus;
+
 -- 1. ACCOUNT TABLE
 CREATE TABLE Account (
     account_id INT PRIMARY KEY,
@@ -16,7 +20,7 @@ CREATE TABLE Account (
     middlename VARCHAR(50),
     surname VARCHAR(50) NOT NULL,
     referral_code VARCHAR(20) UNIQUE,
-    referred_by INT,
+    referred_by INT NULL,
     FOREIGN KEY (referred_by) REFERENCES Account(account_id)
         ON DELETE SET NULL ON UPDATE CASCADE
 );
@@ -36,7 +40,7 @@ CREATE TABLE Coupon (
     amount DECIMAL(8,2) NOT NULL,
     validity DATE NOT NULL,
     issued_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    redeemed_at TIMESTAMP, -- NULL if unused
+    redeemed_at TIMESTAMP,
     FOREIGN KEY (account_id) REFERENCES Account(account_id)
         ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (coupon_category_id) REFERENCES Coupon_Category(coupon_category_id)
@@ -98,15 +102,12 @@ CREATE TABLE Region (
     area VARCHAR(50) NOT NULL
 );
 
--- 10. VENUE TABLE (FIXED)
+-- 10. VENUE TABLE
 CREATE TABLE Venue (
     venue_id INT PRIMARY KEY,
     venue_name VARCHAR(100) NOT NULL,
     pincode INT NOT NULL,
-    owner_id INT NOT NULL, -- Added this line
     FOREIGN KEY (pincode) REFERENCES Region(pincode)
-        ON DELETE RESTRICT ON UPDATE CASCADE,
-    FOREIGN KEY (owner_id) REFERENCES Account(account_id)
         ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
@@ -123,7 +124,7 @@ CREATE TABLE Room (
 
 -- 12. SEAT CATEGORY TABLE
 CREATE TABLE Category (
-    catagory VARCHAR(50) PRIMARY KEY
+    category VARCHAR(50) PRIMARY KEY
 );
 
 -- 13. SEAT TABLE
@@ -131,11 +132,11 @@ CREATE TABLE Seat (
     room_id INT,
     seat_number VARCHAR(10),
     seat_row INT,
-    catagory VARCHAR(50),
+    category VARCHAR(50),
     PRIMARY KEY (room_id, seat_number),
     FOREIGN KEY (room_id) REFERENCES Room(room_id)
         ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (catagory) REFERENCES Category(catagory)
+    FOREIGN KEY (category) REFERENCES Category(category)
         ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
@@ -161,12 +162,11 @@ CREATE TABLE Notification (
     schedule_id INT,
     message TEXT,
     sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-     FOREIGN KEY (schedule_id) REFERENCES Event_Schedule(schedule_id)
+    FOREIGN KEY (schedule_id) REFERENCES Event_Schedule(schedule_id)
         ON DELETE CASCADE ON UPDATE CASCADE
-
 );
 
--- 16. USER NOTIFICATIONS (N:M)
+-- 16. USER NOTIFICATIONS
 CREATE TABLE User_Notifications (
     account_id INT,
     notification_id INT,
@@ -177,8 +177,6 @@ CREATE TABLE User_Notifications (
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-
-
 -- 17. SHOW EVENT PRICING TABLE
 CREATE TABLE Show_Pricing (
     schedule_id INT,
@@ -188,19 +186,19 @@ CREATE TABLE Show_Pricing (
     PRIMARY KEY (schedule_id, category),
     FOREIGN KEY (schedule_id) REFERENCES Event_Schedule(schedule_id)
         ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (category) REFERENCES Category(catagory)
+    FOREIGN KEY (category) REFERENCES Category(category)
         ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- 18. MOVIE EVENT PRICING TABLE
 CREATE TABLE Movie_Pricing (
     schedule_id INT,
-    catagory VARCHAR(50),
+    category VARCHAR(50),
     price DECIMAL(8,2) NOT NULL,
-    PRIMARY KEY (schedule_id, catagory),
+    PRIMARY KEY (schedule_id, category),
     FOREIGN KEY (schedule_id) REFERENCES Event_Schedule(schedule_id)
         ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (catagory) REFERENCES Category(catagory)
+    FOREIGN KEY (category) REFERENCES Category(category)
         ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
@@ -233,11 +231,11 @@ CREATE TABLE Booking (
 -- 21. BOOKING SHOW TABLE
 CREATE TABLE Booking_Show (
     booking_id INT PRIMARY KEY,
-    catagory VARCHAR(50) NOT NULL,
+    category VARCHAR(50) NOT NULL,
     seat_count INT NOT NULL,
     FOREIGN KEY (booking_id) REFERENCES Booking(booking_id)
         ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (catagory) REFERENCES Category(catagory)
+    FOREIGN KEY (category) REFERENCES Category(category)
         ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
@@ -245,10 +243,16 @@ CREATE TABLE Booking_Show (
 CREATE TABLE Booking_Movie (
     booking_id INT,
     seat_number VARCHAR(10) NOT NULL,
-    catagory VARCHAR(50) NOT NULL,
+    category VARCHAR(50) NOT NULL,
     PRIMARY KEY (booking_id, seat_number),
     FOREIGN KEY (booking_id) REFERENCES Booking(booking_id)
         ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (catagory) REFERENCES Category(catagory)
+    FOREIGN KEY (category) REFERENCES Category(category)
         ON DELETE RESTRICT ON UPDATE CASCADE
 );
+
+-- List all tables in the current schema
+SELECT table_name
+FROM information_schema.tables
+WHERE table_schema = current_schema()
+  AND table_type = 'BASE TABLE';
