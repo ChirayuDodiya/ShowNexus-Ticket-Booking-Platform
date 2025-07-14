@@ -32,7 +32,7 @@ ShowNexus is a scalable, relational database system inspired by BookMyShow. It e
 ShowNexus/
 ├── schema.sql               # Full DDL script with table definitions
 ├── insert_data.sql          # Sample realistic data for all tables
-├── sample_queries.sql       # Sample queries (joins, aggregations, etc.)
+├── queries.sql       # Sample queries (joins, aggregations, etc.)
 ├── README.md               # Project overview and documentation
 ├── ER_diagram.pdf          # Entity-Relationship Diagrams
 ├── query_output_1.jpg      # Query execution screenshots
