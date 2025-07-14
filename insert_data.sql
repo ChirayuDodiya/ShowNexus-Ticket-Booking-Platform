@@ -366,7 +366,7 @@ INSERT INTO Category (category) VALUES
 ('VIP');
 
 --13
-INSERT INTO Seat (room_id, seat_number, seat_row, category) VALUES,
+INSERT INTO Seat (room_id, seat_number, seat_row, category) VALUES
 (380001, 'A1', 1, 'Gold'),
 (380001, 'A2', 1, 'Gold'),
 (380001, 'A3', 1, 'Gold'),
@@ -1785,37 +1785,38 @@ INSERT INTO Payment_Details (payment_id, transaction_id, payment_method, payment
 (236090, 'TXN236090MN', 'Debit Card', 'Success', 1030, '2025-04-13 02:16:00.523364');
 
 --20
-INSERT INTO Booking (booking_id, schedule_id, account_id, payment_id, review, booking_time, booking_type) VALUES
-(533001, 777001, 1, 236061, 'Great experience!', '2025-04-13 02:37:57.57512', 'movie'),
-(533002, 777001, 2, 236062, 'Excellent movie, enjoyed a lot!', '2025-04-13 02:37:57.57512', 'movie'),
-(533003, 777003, 3, 236063, 'The show was okay, could be better.', '2025-04-12 01:37:48.75321', 'show'),
-(533004, 777003, 4, 236064, 'Really enjoyed the show.', '2025-04-12 01:47:57.57512', 'show'),
-(533005, 777009, 5, 236065, 'Nice movie, good quality.', '2025-04-13 02:37:57.57512', 'movie'),
-(533006, 777003, 6, 236066, 'Amazing show, would recommend!', '2025-04-13 02:37:57.57512', 'show'),
-(533007, 777013, 7, 236067, 'The show was a bit slow at times.', '2025-03-31 23:38:47.46712', 'show'),
-(533008, 777010, 8, 236068, 'The movie was fantastic!', '2025-04-13 02:37:57.57512', 'movie'),
-(533009, 777016, 9, 236069, 'Not great, expected more action.', '2025-04-09 12:27:37.37672', 'movie'),
-(533010, 777007, 10, 236070, 'Loved the experience, will visit again!', '2025-04-13 02:37:57.57512', 'show'),
-(533011, 777021, 11, 236071, 'Had a great time watching this movie.', '2025-04-13 02:37:57.57512', 'movie'),
-(533012, 777023, 12, 236072, 'The show was fun and engaging!', '2025-04-13 02:37:57.57512', 'show'),
-(533013, 777019, 13, 236073, 'The movie was too long, but good overall.', '2025-04-13 02:37:57.57512', 'movie'),
-(533014, 777024, 14, 236074, 'Nice show, good story.', '2025-04-13 02:37:57.57512', 'show'),
-(533015, 777026, 15, 236075, 'Amazing cinematography in the movie.', '2025-04-13 02:37:57.57512', 'movie'),
-(533016, 777031, 16, 236076, 'Good show, a bit too predictable.', '2025-04-13 02:37:57.57512', 'show'),
-(533017, 777033, 17, 236077, 'Wonderful show, loved the performance!', '2025-04-13 02:37:57.57512', 'show'),
-(533018, 777034, 18, 236078, 'The movie had a great plot!', '2025-04-13 02:37:57.57512', 'movie'),
-(533019, 777033, 19, 236079, 'Good show, but could have been more entertaining.', '2025-04-13 02:37:57.57512', 'show'),
-(533020, 777034, 20, 236080, 'The movie was decent, but a little slow.', '2025-04-13 02:37:57.57512', 'movie'),
-(533021, 777037, 21, 236081, 'Fantastic show, great Experience!', '2025-04-13 02:37:57.57512', 'show'),
-(533022, 777036, 22, 236082, 'Enjoyed the movie, but not as much as expected.', '2025-04-13 02:37:57.57512', 'movie'),
-(533023, 777045, 23, 236083, 'Very good experience, highly recommend the show.', '2025-04-13 02:37:57.57512', 'show'),
-(533024, 777036, 24, 236084, 'Loved the plot of the movie!', '2025-04-13 02:37:57.57512', 'movie'),
-(533025, 777048, 25, 236085, 'The show had a great theme but execution was weak.', '2025-04-13 02:37:57.57512', 'show'),
-(533026, 777051, 26, 236086, 'Great movie with amazing direction!', '2025-04-13 02:37:57.57512', 'movie'),
-(533027, 777053, 27, 236087, 'A good show, though the pacing was slow.', '2025-04-13 02:37:57.57512', 'show'),
-(533028, 777051, 28, 236088, 'Nice movie, a bit of a cliché though.', '2025-04-13 02:37:57.57512', 'movie'),
-(533029, 777053, 29, 236089, 'The show was okay, some parts felt repetitive.', '2025-04-13 02:37:57.57512', 'show'),
-(533030, 777056, 30, 236090, 'Loved the special effects in the movie!', '2025-04-13 02:37:57.57512', 'movie');
+INSERT INTO Booking (booking_id, schedule_id, account_id, payment_id, review, booking_time) VALUES
+(533001, 777001, 1, 236061, 'Great experience!', '2025-04-13 02:37:57.57512'),
+(533002, 777001, 2, 236062, 'Excellent movie, enjoyed a lot!', '2025-04-13 02:37:57.57512'),
+(533003, 777003, 3, 236063, 'The show was okay, could be better.', '2025-04-12 01:37:48.75321'),
+(533004, 777003, 4, 236064, 'Really enjoyed the show.', '2025-04-12 01:47:57.57512'),
+(533005, 777009, 5, 236065, 'Nice movie, good quality.', '2025-04-13 02:37:57.57512'),
+(533006, 777003, 6, 236066, 'Amazing show, would recommend!', '2025-04-13 02:37:57.57512'),
+(533007, 777013, 7, 236067, 'The show was a bit slow at times.', '2025-03-31 23:38:47.46712'),
+(533008, 777010, 8, 236068, 'The movie was fantastic!', '2025-04-13 02:37:57.57512'),
+(533009, 777016, 9, 236069, 'Not great, expected more action.', '2025-04-09 12:27:37.37672'),
+(533010, 777007, 10, 236070, 'Loved the experience, will visit again!', '2025-04-13 02:37:57.57512'),
+(533011, 777021, 11, 236071, 'Had a great time watching this movie.', '2025-04-13 02:37:57.57512'),
+(533012, 777023, 12, 236072, 'The show was fun and engaging!', '2025-04-13 02:37:57.57512'),
+(533013, 777019, 13, 236073, 'The movie was too long, but good overall.', '2025-04-13 02:37:57.57512'),
+(533014, 777024, 14, 236074, 'Nice show, good story.', '2025-04-13 02:37:57.57512'),
+(533015, 777026, 15, 236075, 'Amazing cinematography in the movie.', '2025-04-13 02:37:57.57512'),
+(533016, 777031, 16, 236076, 'Good show, a bit too predictable.', '2025-04-13 02:37:57.57512'),
+(533017, 777033, 17, 236077, 'Wonderful show, loved the performance!', '2025-04-13 02:37:57.57512'),
+(533018, 777034, 18, 236078, 'The movie had a great plot!', '2025-04-13 02:37:57.57512'),
+(533019, 777033, 19, 236079, 'Good show, but could have been more entertaining.', '2025-04-13 02:37:57.57512'),
+(533020, 777034, 20, 236080, 'The movie was decent, but a little slow.', '2025-04-13 02:37:57.57512'),
+(533021, 777037, 21, 236081, 'Fantastic show, great Experience!', '2025-04-13 02:37:57.57512'),
+(533022, 777036, 22, 236082, 'Enjoyed the movie, but not as much as expected.', '2025-04-13 02:37:57.57512'),
+(533023, 777045, 23, 236083, 'Very good experience, highly recommend the show.', '2025-04-13 02:37:57.57512'),
+(533024, 777036, 24, 236084, 'Loved the plot of the movie!', '2025-04-13 02:37:57.57512'),
+(533025, 777048, 25, 236085, 'The show had a great theme but execution was weak.', '2025-04-13 02:37:57.57512'),
+(533026, 777051, 26, 236086, 'Great movie with amazing direction!', '2025-04-13 02:37:57.57512'),
+(533027, 777053, 27, 236087, 'A good show, though the pacing was slow.', '2025-04-13 02:37:57.57512'),
+(533028, 777051, 28, 236088, 'Nice movie, a bit of a cliché though.', '2025-04-13 02:37:57.57512'),
+(533029, 777053, 29, 236089, 'The show was okay, some parts felt repetitive.', '2025-04-13 02:37:57.57512'),
+(533030, 777056, 30, 236090, 'Loved the special effects in the movie!', '2025-04-13 02:37:57.57512');
+
 
 --21
 INSERT INTO Booking_Show (
@@ -1835,22 +1836,7 @@ INSERT INTO Booking_Show (
 (533023, 'Bronze', 2),
 (533025, 'Gold', 3),
 (533027, 'Silver', 4),
-(533029, 'Bronze', 5),
-(533031, 'Gold', 1),
-(533033, 'Silver', 2),
-(533035, 'Bronze', 3),
-(533037, 'Gold', 4),
-(533039, 'Silver', 5),
-(533041, 'Bronze', 1),
-(533043, 'Gold', 2),
-(533045, 'Silver', 3),
-(533047, 'Bronze', 4),
-(533049, 'Gold', 5),
-(533051, 'Silver', 1),
-(533053, 'Bronze', 2),
-(533055, 'Gold', 3),
-(533057, 'Silver', 4),
-(533059, 'Bronze', 5);
+(533029, 'Bronze', 5);
 
 --22
 INSERT INTO Booking_Movie (
@@ -1870,19 +1856,4 @@ INSERT INTO Booking_Movie (
 (533024, 'C2', 'Bronze'),
 (533026, 'C3', 'Gold'),
 (533028, 'C4', 'Silver'),
-(533030, 'C5', 'Bronze'),
-(533032, 'D1', 'Gold'),
-(533034, 'D2', 'Silver'),
-(533036, 'D3', 'Bronze'),
-(533038, 'D4', 'Gold'),
-(533040, 'D5', 'Silver'),
-(533042, 'E1', 'Bronze'),
-(533044, 'E2', 'Gold'),
-(533046, 'E3', 'Silver'),
-(533048, 'E4', 'Bronze'),
-(533050, 'E5', 'Gold'),
-(533052, 'F1', 'Silver'),
-(533054, 'F2', 'Bronze'),
-(533056, 'F3', 'Gold'),
-(533058, 'F4', 'Silver'),
-(533060, 'F5', 'Bronze');
+(533030, 'C5', 'Bronze');
