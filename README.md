@@ -63,7 +63,7 @@ ShowNexus/
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/ChirayuDodiya/ShowNexus-Ticket-Booking-System.git
-   cd ShowNexus
+    cd ShowNexus-Ticket-Booking-System
    ```
 
 2. **Create a new database**:
