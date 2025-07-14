@@ -1,6 +1,6 @@
 # ShowNexus
 
-ShowNexus is a scalable, relational database system inspired by BookMyShow. It enables efficient booking of event and movie tickets, supporting features like category-based and seat-based ticketing, venue management, and multi-location scheduling. The system is designed using PostgreSQL and normalized up to BCNF for optimal performance and data integrity.
+ShowNexus is a database system inspired by BookMyShow. It enables efficient booking of event and movie tickets, supporting features like category-based and seat-based ticketing, venue management, and multi-location scheduling. The system is designed using PostgreSQL and normalized up to BCNF for optimal performance and data integrity.
 
 ---
 
