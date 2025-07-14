@@ -46,6 +46,6 @@ JOIN Show_Pricing sp ON es.schedule_id = sp.schedule_id
 LEFT JOIN Booking b ON b.schedule_id = es.schedule_id
 LEFT JOIN Booking_Show bs ON bs.booking_id = b.booking_id AND bs.category = sp.category
 WHERE 
-    e.event_name = 'The Lost Treasure'
-    AND es.event_datetime = '2025-05-01 10:00:00'
+    e.event_name = 'Midnight Scream'
+    AND es.event_datetime = '2025-05-01 13:30:00'
 GROUP BY sp.category, sp.category_capacity;
