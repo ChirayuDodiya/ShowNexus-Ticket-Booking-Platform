@@ -1,0 +1,25 @@
+ER diagram.pdf
+Query output 1.png
+Query output 2.png
+Query output 3.png
+Query output 4.png
+README.md
+Relational Database.pdf------------------------------------------->done
+insert_data.sql------------------------------------------->done
+queries.sql
+schema.sql------------------------------------------->done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------->done
